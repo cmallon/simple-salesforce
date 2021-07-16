@@ -208,8 +208,6 @@ class SFBulkType:
 
         if operation not in ('query', 'queryAll'):
             # Checks to prevent batch limit
-            if len(data) >= 10000 and batch_size > 10000:
-                batch_size = 10000
             with concurrent.futures.ThreadPoolExecutor() as pool:
 
                 job = self._create_job(operation=operation,
